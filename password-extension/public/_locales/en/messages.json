@@ -1,0 +1,24 @@
+{
+  "extName": {
+    "message": "Password Manager",
+    "description": ""
+  },
+  "recentlyUsed": {
+    "message": "Recently Used"
+  },
+  "allPasswords": {
+    "message": "All Passwords"
+  },
+  "addPassword": {
+    "message": "Add Password"
+  },
+  "accountOptions": {
+    "message": "Account Settings"
+  },
+  "signOut": {
+    "message": "Sign Out"
+  },
+  "aboutExtension": {
+    "message": "About"
+  }
+}

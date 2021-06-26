@@ -1,0 +1,109 @@
+.projectHeader {
+    margin-left: 100px;
+    position: relative;
+    font-size: 18px;
+}
+.menuItems {
+    list-style: none;
+    line-height: 40px;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    padding: 0;
+}
+
+.recentlyUsed {
+    background-image: url("../icons/recenlty-used-icon.svg");
+    background-repeat: no-repeat;
+    background-position: 0px;
+    background-size: 20px;
+    padding-left: 30px;
+    font-size: 15px;
+}
+
+.allPasswords {
+    background-image: url("../icons/all-paswords-icon.svg");
+    background-repeat: no-repeat;
+    background-position: 0px;
+    background-size: 20px;
+    padding-left: 30px;
+    font-size: 15px;
+}
+
+.addPassword {
+    background-image: url("../icons/add-password-icon.svg");
+    background-repeat: no-repeat;
+    background-position: 0px 10px;
+    background-size: 20px;
+    padding-left: 30px;
+    font-size: 15px;
+    border-bottom: solid;
+    border-bottom-width: thin;
+    border-bottom-color: #d9d9d9;
+}
+
+.moreOptions {
+    background-image: url("../icons/more-icon.svg");
+    position: absolute;
+    right: 10px;
+    z-index: 999999!important;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: transparent;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.accountItems {
+    list-style: none;
+    line-height: 40px;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    padding: 0;
+}
+
+.accountOptions {
+    background-image: url("../icons/account-options-icon.svg");
+    background-repeat: no-repeat;
+    background-position: 0px;
+    background-size: 20px;
+    padding-left: 30px;
+    font-size: 15px;
+}
+
+.signOut {
+    background-image: url("../icons/sign-out-icon.svg");
+    background-repeat: no-repeat;
+    background-position: 0px;
+    background-size: 20px;
+    padding-left: 30px;
+    font-size: 15px;
+    border-bottom: solid;
+    border-bottom-width: thin;
+    border-bottom-color: #d9d9d9;
+}
+
+.aboutItems {
+    list-style: none;
+    line-height: 40px;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    padding: 0;
+}
+
+.aboutExtension {
+    background-image: url("../icons/info-icon.svg");
+    background-repeat: no-repeat;
+    background-position: 3px;
+    background-size: 6px;
+    padding-left: 30px;
+    font-size: 15px;
+}
+
+li:hover {
+    background-color: #d9d9d9;
+}

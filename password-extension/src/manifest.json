@@ -1,0 +1,55 @@
+{
+  "manifest_version": 2,
+  "name": "__MSG_extName__",
+  "homepage_url": "http://localhost:8080/",
+  "description": "A Vue Browser Extension",
+  "default_locale": "en",
+  "permissions": [
+    "activeTab",
+    "<all_urls>",
+    "contextMenus",
+		"storage",
+		"nativeMessaging",
+		"privacy",
+		"webRequest",
+		"webNavigation",
+		"webRequestBlocking",
+    "proxy",
+    "notifications",
+    "*://*/*"
+  ],
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "background": {
+    "scripts": [
+      "js/background.js"
+    ],
+    "persistent": true
+  },
+  "devtools_page": "devtools.html",
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "__MSG_extName__",
+    "default_icon": {
+      "19": "icons/19.png",
+      "38": "icons/38.png"
+    }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "browser_style": true
+  },
+  "web_accessible_resources": [
+    "assets/style/main.css",
+    "assets/icons/recenlty-used-icon.svg",
+    "assets/icons/all-passwords-icon.svg",
+    "assets/icons/add-password-icon.svg",
+    "assets/icons/more-icon.svg",
+    "assets/icons/sign-out-icon.svg",
+    "assets/icons/account-options-icon.svg",
+    "assets/icons/info-icon.svg"
+  ]
+}
