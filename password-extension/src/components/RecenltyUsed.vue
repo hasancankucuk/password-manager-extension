@@ -1,27 +1,25 @@
 <template>
-  <div class="about">
-    <p class="projectHeader">{{ defaultText }}</p>
+    <div>
+      <div class="signUpHeaderDiv">
+        <p class="signUpStart">{{ getSignUpStartTxt }}</p>
+      </div>
       <h3 class="backToMain" @click="mainPopup">{{ getBackToMainTxt }}
         <div class="backToMainIcon"></div>
       </h3>
-      <p class="aboutText"> {{ getAboutText}}</p>
-  </div>
+    </div>
 </template>
 
 <script>
 import localizedService from '../services/localized-services'
 import router from '../router'
 export default {
-  name: 'About',
+  name: 'RecenltyUsed',
   computed: {
     defaultText () {
       return localizedService.getLocalizedMessages('extName')
     },
     getBackToMainTxt () {
       return localizedService.getLocalizedMessages('backToMain')
-    },
-    getAboutText () {
-      return localizedService.getLocalizedMessages('aboutText')
     }
   },
   methods: {

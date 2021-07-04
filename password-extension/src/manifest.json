@@ -6,7 +6,9 @@
   "default_locale": "en",
   "permissions": [
     "activeTab",
+    "tabs",
     "<all_urls>",
+    "notifications",
     "contextMenus",
 		"storage",
 		"nativeMessaging",
@@ -15,7 +17,7 @@
 		"webNavigation",
 		"webRequestBlocking",
     "proxy",
-    "notifications",
+    "clipboard-write",
     "*://*/*"
   ],
   "icons": {
@@ -44,7 +46,7 @@
   },
   "web_accessible_resources": [
     "assets/style/main.css",
-    "assets/icons/recenlty-used-icon.svg",
+    "src/assets/icons/recenlty-used-icon.svg",
     "assets/icons/all-passwords-icon.svg",
     "assets/icons/add-password-icon.svg",
     "assets/icons/more-icon.svg",

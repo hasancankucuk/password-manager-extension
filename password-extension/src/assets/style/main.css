@@ -1,8 +1,19 @@
+.projectHeaderDiv {
+    background-color: #5F9EA0;
+    margin-top: -8px;
+    margin-left: -8px;
+    width: 500px;
+    position: relative;
+    padding: 1px;
+    color: white;
+}
+
 .projectHeader {
     margin-left: 100px;
     position: relative;
     font-size: 18px;
 }
+
 .menuItems {
     list-style: none;
     line-height: 40px;
@@ -10,6 +21,7 @@
     text-decoration: none;
     display: block;
     padding: 0;
+    user-select: none;
 }
 
 .recentlyUsed {
@@ -63,6 +75,7 @@
     text-decoration: none;
     display: block;
     padding: 0;
+    user-select: none;
 }
 
 .accountOptions {
@@ -93,6 +106,7 @@
     text-decoration: none;
     display: block;
     padding: 0;
+    user-select: none;
 }
 
 .aboutExtension {
@@ -105,5 +119,300 @@
 }
 
 li:hover {
-    background-color: #d9d9d9;
+    background-color: #5F9EA0;
+    color: white;
+}
+
+.backToMain {
+    position: relative;
+    padding-left: 17px;
+    font-weight: normal;
+    font-size: 15px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.backToMainIcon {
+    background-image: url("../icons/more-icon.svg");
+    transform: scaleX(-1);
+    position: absolute;
+    left: -8px;
+    z-index: 999999!important;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: transparent;
+    display: inline-block;
+}
+
+.notificationSettingsItem {
+    list-style: none;
+    line-height: 40px;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    padding: 0;
+    user-select: none;
+}
+
+.notificationSetting {
+    background-image: url("../icons/notification-icon.svg");
+    background-repeat: no-repeat;
+    background-position: 0px;
+    background-size: 20px;
+    padding-left: 30px;
+    font-size: 14px;
+}
+
+.matchedPasswordSetting {
+    background-image: url("../icons/matched-password-icon.svg");
+    background-repeat: no-repeat;
+    background-position: 0px;
+    background-size: 20px;
+    padding-left: 30px;
+    font-size: 14px;
+    border-bottom: solid;
+    border-bottom-width: thin;
+    border-bottom-color: #d9d9d9;
+}
+
+.mailSettingItem {
+    list-style: none;
+    line-height: 40px;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    padding: 0;
+    border-bottom: solid;
+    border-bottom-width: thin;
+    border-bottom-color: #d9d9d9;
+    user-select: none;
+}
+
+.changeMailSetting {
+    background-image: url("../icons/change-email-icon.svg");
+    background-repeat: no-repeat;
+    background-position: 0px;
+    background-size: 20px;
+    padding-left: 30px;
+    font-size: 14px;
+}
+
+.passwordSettingsItem {
+    list-style: none;
+    line-height: 40px;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    padding: 0;
+    user-select: none;
+}
+
+.changePasswordSetting {
+    background-image: url("../icons/change-password-icon.svg");
+    background-repeat: no-repeat;
+    background-position: 0px;
+    background-size: 20px;
+    padding-left: 30px;
+    font-size: 14px;
+}
+
+.generatePasswordSetting {
+    background-image: url("../icons/generate-password-icon.svg");
+    background-repeat: no-repeat;
+    background-position: 0px;
+    background-size: 20px;
+    padding-left: 30px;
+    font-size: 14px;
+}
+
+.aboutText {
+    font: normal 15px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 20px;
+    height: 75px;
+    margin: 0px;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 10px;
+    user-select: none;
+}
+
+.loginPageMain {
+    user-select: none;
+}
+
+.loginHeader {
+    position: absolute;
+    left: 150px;
+    top: 40px;
+    font-size: 18px;
+}
+
+.signUpHeader {
+    position: relative;
+    /* left: 129px; */
+    margin-top:0;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+}
+
+.divisionLine {
+    position: absolute;
+    border: solid;
+    border-width: 1px;
+    margin-top: 27px;
+    width: 91%;
+}
+
+.loginEmailBox {
+    position: relative;
+    margin-top: 46px;
+    margin-left: 10px;
+    width: 90%;
+    height: 35px;
+}
+
+.loginPasswordBox {
+    position: relative;
+    margin-top: 11px;
+    margin-left: 10px;
+    width: 90%;
+    height: 35px;
+}
+
+.loginButton {
+    position: relative;
+    margin-top: 20px;
+    margin-left: 125px;
+    width: 75px;
+    height: 45px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.forgotPassword {
+    position: relative;
+    /* margin-top: 25px; */
+    /* margin-left: 119px; */
+    color: #5F9EA0;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+}
+
+.signUpHeaderDiv {
+    position: absolute;
+    width: 100%;
+    height: 46px;
+    top: 0;
+    left: 0;
+    background-color: #5F9EA0;
+    color: white;
+    font-size: 20px;
+    padding-left: 25px;
+    line-height: 7px;
+}
+
+.signUpEmailDiv {
+    position: relative;
+    margin-top: 70px;
+}
+
+.signUpEmailBox {
+    width: 90%;
+    height: 30px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.userAgreement {
+    font: normal 15px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 20px;
+    height: 75px;
+    margin: 0px;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 10px;
+    user-select: none;
+}
+.backToCreateEmail {
+    margin-top: 50px;
+    position: absolute;
+    border: none;
+    font-size: 17px;
+    background-color: transparent;
+    margin-left: 10px;
+}
+
+.createAccount {
+    margin-top: 50px;
+    margin-left: 180px;
+    padding-bottom: 30px;
+    border: none;
+    background-color: transparent;
+    font-size: 17px;
+    color: #5F9EA0;
+}
+
+.signUpPasswordDiv {
+    position: relative;
+    margin-top: 70px;
+}
+
+.signUpPasswordBox {
+    width: 90%;
+    height: 30px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.signUpConfirmPasswordBox {
+    width: 90%;
+    height: 30px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin-top: 15px;
+}
+
+.passwordHintBox {
+    width: 90%;
+    height: 30px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin-top: 15px;
+}
+
+.finishCreateAccount {
+    margin-top: 50px;
+    margin-left: 250px;
+    font-size: 18px;
+    background-color: transparent;
+    border: none;
+    color: #5F9EA0;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #5F9EA0;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    z-index: 999999!important;
+    position: relative;
+    margin: 36%;
+  }
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

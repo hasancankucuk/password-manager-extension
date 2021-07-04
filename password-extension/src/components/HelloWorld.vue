@@ -1,25 +1,27 @@
 <template>
   <div>
-    <p class="projectHeader">{{ defaultText }}</p>
+    <div class="projectHeaderDiv">
+      <p class="projectHeader">{{ defaultText }}</p>
+    </div>
     <ul class="menuItems">
-      <li class="recentlyUsed">{{ getRecenltyUsedText }}
+      <li class="recentlyUsed" @click="openRecenltyUsed">{{ getRecenltyUsedText }}
         <div class="moreOptions" id="recentlyUsedMore"></div>
       </li>
-      <li class="allPasswords">{{ getAllPasswordsText }}
+      <li class="allPasswords" @click="openAllPasswords">{{ getAllPasswordsText }}
         <div class="moreOptions" id="allPasswordsMore"></div>
       </li>
-      <li  class="addPassword">{{ getAddPasswordText }}
+      <li  class="addPassword" @click="openAddPassword">{{ getAddPasswordText }}
         <div class="moreOptions" id="addPasswordMore"></div>
       </li>
     </ul>
     <ul class="accountItems">
-      <li class="accountOptions">{{ getAccountOptionsText }}
+      <li class="accountOptions" @click="openOptions">{{ getAccountOptionsText }}
         <div class="moreOptions" id="accountOptionsMore"></div>
       </li>
       <li class="signOut">{{ getSignOutText }}</li>
     </ul>
     <ul class="aboutItems">
-      <li class="aboutExtension">{{getAboutExtensionText}}
+      <li class="aboutExtension" @click="openAbout">{{getAboutExtensionText}}
         <div class="moreOptions" id="aboutExtensionMore"></div>
       </li>
     </ul>
@@ -28,6 +30,7 @@
 
 <script>
 import localizedService from '../services/localized-services'
+import router from '../router'
 export default {
   name: 'HelloWorld',
   data () {
@@ -62,8 +65,22 @@ export default {
     }
   },
   methods: {
-    test () {
-      console.log(window.PasswordCredential.name)
+    openOptions () {
+      router.push({ path: '/accountOptions' })
+    },
+    openRecenltyUsed () {
+      router.push({ path: '/recenltyUsed' })
+    },
+    openAllPasswords () {
+      // TODO : web sitesi url eklenecek
+      window.open('http://192.168.1.22:8080/all-passwords')
+    },
+    openAddPassword () {
+      // TODO : web sitesi url eklenecek
+      window.open('http://192.168.1.22:8080/add-account')
+    },
+    openAbout () {
+      router.push({ path: '/about' })
     }
   }
 }

@@ -20,5 +20,59 @@
   },
   "aboutExtension": {
     "message": "Hakkında"
+  },
+  "backToMain" : {
+    "message": "Geri Dön"
+  },
+  "notificationSetting": {
+    "message": "Bildirimleri Aç"
+  },
+  "matchedPasswordSetting": {
+    "message": "Eşleşen Site Sayısını Göster "
+  },
+  "changeMailSetting": {
+    "message": "E-postamı Değiştir"
+  },
+  "changePasswordSetting": {
+    "message": "Şifremi Değiştir"
+  },
+  "generatePasswordSetting": {
+    "message": "Güçlü Şifre Yarat"
+  },
+  "aboutText": {
+    "message": "Bu Chrome Şifre Yöneticisi eklentisi Hasan Can Küçük tarafından staj projesi olarak oluşturulmuştur. Bu eklentiyi kullanarak, web sitelerindeki giriş bilgilerinizi kaydedebilir ve tekrar giriş kutucuklarını otomatik olarak kayıtlı şifrelerle doldurabilirsiniz. "
+  },
+  "notificationMessage": {
+    "message": "Bu web sitesi için kayıtlı şifre bulundu."
+  },
+  "loginHeader": {
+    "message": "Giriş Yap"
+  },
+  "signUpHeader": {
+    "message": "Hesap Oluşturun"
+  },
+  "forgotPassword": {
+    "message": "Şifremi Unuttum"
+  },
+  "emailBoxPlaceHolder": {
+    "message": "Eposta Adresi"
+  },
+  "passwordBoxPlaceHolder": {
+    "message": "Şifre"
+  },
+  "signUpStart": {
+    "message": "Başlayalım!"
+  },
+  "finishCreateAccount": {
+    "message": "Hesabımı Oluştur"
+  },
+  "userAgreement": {
+    "message": "Kullanıcı Sözleşmesi"
+  },
+  "confirmPasswordPlaceHolder": {
+    "message": "Şifrenizi tekrar giriniz"
+  },
+  "hintBoxPlaceHolder": {
+    "message": "Şifre ipucu"
   }
 }
