@@ -120,6 +120,16 @@
 
 li:hover {
     background-color: #5F9EA0;
+}
+
+.about {
+    background-color: #5F9EA0;
+    margin-top: -8px;
+    margin-left: -8px;
+    width: 500px;
+    height: 60px;
+    position: relative;
+    padding: 1px;
     color: white;
 }
 
@@ -130,10 +140,18 @@ li:hover {
     font-size: 15px;
     user-select: none;
     cursor: pointer;
+    color: white;
+    top: 10px;
+    background-color: #5F9EA0;
+    width: 41px;
+    height: 21px;
+    border-radius: 7px;
+    left: 8px;
 }
 
 .backToMainIcon {
     background-image: url("../icons/more-icon.svg");
+    filter: invert(100%) sepia(73%) saturate(2%) hue-rotate(149deg) brightness(109%) contrast(101%);
     transform: scaleX(-1);
     position: absolute;
     left: -8px;
@@ -236,68 +254,86 @@ li:hover {
     vertical-align: middle;
     padding: 10px;
     user-select: none;
+    color: black;
+    white-space: initial;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .loginPageMain {
+    background-color: #5F9EA0;
+    margin-top: -8px;
+    margin-left: -8px;
+    width: 500px;
+    height: 60px;
+    position: relative;
+    padding: 1px;
+    color: white;
     user-select: none;
-}
-
-.loginHeader {
-    position: absolute;
-    left: 150px;
-    top: 40px;
-    font-size: 18px;
 }
 
 .signUpHeader {
     position: relative;
-    /* left: 129px; */
-    margin-top:0;
+    left: -73px;
+    margin-top: 20px;
     font-size: 14px;
     font-weight: normal;
     text-align: center;
-}
-
-.divisionLine {
-    position: absolute;
-    border: solid;
-    border-width: 1px;
-    margin-top: 27px;
-    width: 91%;
+    color: gray;
 }
 
 .loginEmailBox {
     position: relative;
     margin-top: 46px;
     margin-left: 10px;
-    width: 90%;
+    width: 63%;
     height: 35px;
+    border: none;
+    border-bottom: solid;
+    border-color: gray;
+    border-width: thin;
+}
+
+.loginEmailBox:focus {
+    outline: none;
 }
 
 .loginPasswordBox {
     position: relative;
     margin-top: 11px;
     margin-left: 10px;
-    width: 90%;
+    width: 63%;
     height: 35px;
+    border: none;
+    border-bottom: solid;
+    border-color: gray;
+    border-width: thin;
+}
+
+.loginPasswordBox:focus {
+    outline: none;
 }
 
 .loginButton {
     position: relative;
-    margin-top: 20px;
-    margin-left: 125px;
+    margin-top: 41px;
+    margin-left: 139px;
     width: 75px;
     height: 45px;
-    background-color: transparent;
+    background-color: #5F9EA0;
     border: none;
     font-size: 20px;
     font-weight: bold;
+    border-radius: 7px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
 }
 
 .forgotPassword {
     position: relative;
-    /* margin-top: 25px; */
-    /* margin-left: 119px; */
+    margin-top: -4px;
+    left: -73px;
     color: #5F9EA0;
     font-size: 14px;
     font-weight: normal;
@@ -340,13 +376,21 @@ li:hover {
     padding: 10px;
     user-select: none;
 }
+
 .backToCreateEmail {
     margin-top: 50px;
     position: absolute;
     border: none;
-    font-size: 17px;
-    background-color: transparent;
-    margin-left: 10px;
+    font-size: 13px;
+    background-color: gray;
+    margin-left: 40px;
+    width: 100px;
+    height: 42px;
+    border-radius: 7px;
+    color: white;
+    user-select: none;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .createAccount {
@@ -354,9 +398,17 @@ li:hover {
     margin-left: 180px;
     padding-bottom: 30px;
     border: none;
-    background-color: transparent;
-    font-size: 17px;
-    color: #5F9EA0;
+    background-color: #5F9EA0;
+    font-size: 13px;
+    color: white;
+    text-align: center;
+    width: 100px;
+    height: 42px;
+    border-radius: 7px;
+    user-select: none;
+    padding-top: 4px;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .signUpPasswordDiv {
@@ -415,4 +467,83 @@ li:hover {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+.resetPasswordMain {
+    background-color: #5F9EA0;
+    margin-top: -8px;
+    margin-left: -8px;
+    width: 500px;
+    height: 60px;
+    position: relative;
+    padding: 1px;
+    color: white;
+}
+
+.resetPasswordHeader {
+    position: absolute;
+    font-size: 16px;
+    margin-left: 20px;
+    top: 7px;
+}
+
+.resetPasswordSpan {
+    position: relative;
+    top: 120px;
+    text-align: center;
+    font-size: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-left: 80px;
+    display: table;
+    color: black;
+}
+
+.resetPasswordInput {
+    position: relative;
+    top: 135px;
+    margin-left: 50px;
+    text-align: center;
+    display: block;
+    width: 250px;
+    height: 25px;
+    font-size: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border: none;
+    border-bottom: solid;
+    border-width: thin;
+    border-color: gray;
+}
+
+.resetPasswordInput:focus {
+    outline: none;
+}
+
+.resetPasswordCancel {
+    position: relative;
+    top: 190px;
+    display: block;
+    margin: auto 65px auto 80px;
+    border: none;
+    width: 75px;
+    height: 30px;
+    background-color: gray;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.resetPasswordSubmit {
+    position: relative;
+    top: 160px;
+    display: block;
+    margin: auto 175px auto;
+    border: none;
+    width: 75px;
+    height: 30px;
+    background-color: #5F9EA0;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 7px;
+    cursor: pointer;
 }

@@ -61,8 +61,8 @@ export default {
     }
   },
   methods: {
-    mainPopup () {
-      router.push({ path: '/home' })
+    mainPopup () { //
+      router.push({ path: '/' })
     },
     changePassword () {
       // TODO : web sitesi url eklenecek
@@ -70,7 +70,7 @@ export default {
     },
     generatePassword () {
       // TODO: web sitesi url eklenecek
-      window.open('http://192.168.1.22:8080/password-generator')
+      window.open('http://192.168.1.23:8080/password-generator')
     },
     changeMail () {
       // TODO: web sitesi url eklenecek

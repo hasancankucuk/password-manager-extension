@@ -53,5 +53,9 @@
     "assets/icons/sign-out-icon.svg",
     "assets/icons/account-options-icon.svg",
     "assets/icons/info-icon.svg"
-  ]
+  ],
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["js/content-script.js"]
+  }]
 }

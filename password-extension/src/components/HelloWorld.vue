@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="projectHeaderDiv">
+  <div >
+    <div class="projectHeaderDiv" >
       <p class="projectHeader">{{ defaultText }}</p>
     </div>
     <ul class="menuItems">
@@ -18,7 +18,7 @@
       <li class="accountOptions" @click="openOptions">{{ getAccountOptionsText }}
         <div class="moreOptions" id="accountOptionsMore"></div>
       </li>
-      <li class="signOut">{{ getSignOutText }}</li>
+      <li class="signOut" @click="signOut">{{ getSignOutText }}</li>
     </ul>
     <ul class="aboutItems">
       <li class="aboutExtension" @click="openAbout">{{getAboutExtensionText}}
@@ -31,6 +31,8 @@
 <script>
 import localizedService from '../services/localized-services'
 import router from '../router'
+import store from '../store'
+import { mapState } from 'vuex'
 export default {
   name: 'HelloWorld',
   data () {
@@ -38,10 +40,19 @@ export default {
       localizedService
     }
   },
+  created () {
+    if (store.state.isLoggedIn === undefined) {
+      store.state.isLoggedIn = localStorage.getItem('logInfo')
+    }
+    if (router.currentRoute.path !== '/loginPage' && store.state.isLoggedIn === 'false') {
+      router.push({ path: '/loginPage' }).catch((err) => { console.log(err) })
+    }
+  },
   mounted () {
     browser.runtime.sendMessage({})
   },
   computed: {
+    ...mapState(['isLoggedIn']),
     defaultText () {
       return localizedService.getLocalizedMessages('extName')
     },
@@ -73,14 +84,25 @@ export default {
     },
     openAllPasswords () {
       // TODO : web sitesi url eklenecek
-      window.open('http://192.168.1.22:8080/all-passwords')
+      window.open('http://192.168.1.23:8080/all-passwords')
     },
     openAddPassword () {
       // TODO : web sitesi url eklenecek
-      window.open('http://192.168.1.22:8080/add-account')
+      window.open('http://192.168.1.23:8080/add-account')
     },
     openAbout () {
       router.push({ path: '/about' })
+    },
+    signOut () {
+      if (store.state.isLoggedIn) {
+        store.dispatch('setLogIn', false)
+        browser.runtime.sendMessage({
+          key: 'loggedOut'
+        })
+        router.push({ path: '/loginPage' }).catch((reason) => {
+          console.log(reason)
+        })
+      }
     }
   }
 }

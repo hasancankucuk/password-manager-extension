@@ -3,10 +3,21 @@ import App from './App.vue'
 import router from '../router'
 import store from '../store'
 
+chrome.runtime.sendMessage({ popupOpen: true })
 /* eslint-disable no-new */
 new Vue({
   store,
   el: '#app',
   render: h => { return h(App) },
-  router
+  router,
+  mounted () {
+    if (router.currentRoute.path !== '/loginPage' && store.state.isLoggedIn === 'false') {
+      router.push({ path: '/loginPage' })
+    }
+    browser.tabs.executeScript(null, { code: 'var s = document.documentElement.outerHTML; chrome.runtime.sendMessage({action: "getSource", source: s});' })
+    chrome.runtime.sendMessage({ action: 'getSource' })
+    // TODO: Düzeltilecek
+    chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+    })
+  }
 })

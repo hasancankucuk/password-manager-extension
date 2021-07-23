@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     mainPopup () {
-      router.push({ path: '/home' })
+      router.push({ path: '/' })
     }
   }
 }

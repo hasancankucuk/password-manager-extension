@@ -4,6 +4,8 @@ export default {
   },
   setToolbarNotificationMutation (state, payload) {
     state.isToolbarNotificationEnable = payload
-    console.log(payload)
+  },
+  setLogInMutation (state, payload) {
+    state.isLoggedIn = payload
   }
 }

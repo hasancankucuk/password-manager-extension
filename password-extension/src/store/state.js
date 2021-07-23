@@ -1,4 +1,5 @@
 export default {
   isNotificationsEnable: true,
-  isToolbarNotificationEnable: true
+  isToolbarNotificationEnable: true,
+  isLoggedIn: undefined
 }

@@ -74,5 +74,17 @@
   },
   "hintBoxPlaceHolder": {
     "message": "Password Hint"
+  },
+  "resetPasswordHeader": {
+    "message": "Reset Password"
+  },
+  "resetPasswordSpan": {
+    "message": "Please enter your e-mail."
+  },
+  "cancelButtonText": {
+    "message": "Cancel"
+  },
+  "submitButtonText": {
+    "message": "Submit"
   }
 }

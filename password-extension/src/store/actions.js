@@ -4,5 +4,8 @@ export default {
   },
   setToolbarNotifications ({ commit }, payload) {
     commit('setToolbarNotificationMutation', payload)
+  },
+  setLogIn ({ commit }, payload) {
+    commit('setLogInMutation', payload)
   }
 }

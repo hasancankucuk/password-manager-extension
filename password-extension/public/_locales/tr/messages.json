@@ -74,5 +74,17 @@
   },
   "hintBoxPlaceHolder": {
     "message": "Şifre ipucu"
+  },
+  "resetPasswordHeader": {
+    "message": "Şifre Sıfırla"
+  },
+  "resetPasswordSpan": {
+    "message": "Lütfen e-posta adresinizi girini."
+  },
+  "cancelButtonText": {
+    "message": "İptal"
+  },
+  "submitButtonText": {
+    "message": "Sıfırla"
   }
 }
