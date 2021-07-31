@@ -70,8 +70,9 @@ function getInfo (mesg) {
 
 function saveUserAccounts () {
   if (window.userPassword === '' || window.userMail === '') {
-    return
+    return;
   }
+
   var axios = require('axios')
   var data = JSON.stringify({ id: 0, savedUsername: window.userMail, savedPassword: window.userPassword, savedUrl: window.url })
   var config = {
@@ -91,7 +92,11 @@ function saveUserAccounts () {
 
 function activatePopup () {
   chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
-    window.url = tabs[0].url
+    if (tabs.length > 0) {
+      window.url = tabs[0].url
+    } else {
+      window.url = undefined;
+    }
   })
   try {
     chrome.runtime.sendMessage({ msg: 'activatePopup' })
