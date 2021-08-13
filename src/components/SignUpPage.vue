@@ -1,41 +1,41 @@
 <template>
   <div class="signUpMain">
     <div class="signUpHeaderDiv">
-      <p class="signUpStart">{{ getSignUpStartTxt }}</p>
+      <p class="signUpStart">{{ getLocalizedMessages('signUpStart') }}</p>
     </div>
     <div class="signUpEmailDiv" v-show="!this.createAccountClicked">
       <input
         class="signUpEmailBox"
         type="email"
-        v-bind:placeholder="getEmailBoxPlaceHolderTxt"
+        v-bind:placeholder="getLocalizedMessages('emailBoxPlaceHolder')"
         v-model="email"
       />
-      <p class="userAgreement">{{ getUserAgreementTxt }}</p>
-      <button class="backToCreateEmail" @click="backToMain()">{{ getBackToMainTxt }}</button>
+      <p class="userAgreement">{{ getLocalizedMessages('userAgreement') }}</p>
+      <button class="backToCreateEmail" @click="backToMain()">{{ getLocalizedMessages('backToMain') }}</button>
       <button class="createAccount" @click="createAccount()">
-        {{ getSignUpHeaderTxt }}
+        {{ getLocalizedMessages('signUpHeader') }}
       </button>
     </div>
     <div class="signUpPasswordDiv" v-show="this.createAccountClicked">
       <input
         class="signUpPasswordBox"
         type="password"
-        v-bind:placeholder="getPasswordBoxPlaceHolderTxt"
+        v-bind:placeholder="getLocalizedMessages('passwordBoxPlaceHolder')"
         v-model="password"
       />
       <input
         class="signUpConfirmPasswordBox"
         type="password"
-        v-bind:placeholder="getConfirmPasswordBoxPlaceHolderTxt"
+        v-bind:placeholder="getLocalizedMessages('confirmPasswordPlaceHolder')"
         v-model="passwordConfirm"
       />
       <input
         class="passwordHintBox"
         type="text"
-        v-bind:placeholder="getHintBoxPlaceHolderTxt"
+        v-bind:placeholder="getLocalizedMessages('hintBoxPlaceHolder')"
       />
       <button class="finishCreateAccount" @click="finishCreate">
-        {{ getFinishCreateAccountTxt }}
+        {{ getLocalizedMessages('finishCreateAccount') }}
       </button>
     </div>
   </div>
@@ -55,35 +55,9 @@ export default {
     }
   },
   computed: {
-    getSignUpStartTxt () {
-      return localizedService.getLocalizedMessages('signUpStart')
+    getLocalizedMessages(text) {
+      return localizedService.getLocalizedMessages(text)
     },
-    getSignUpHeaderTxt () {
-      return localizedService.getLocalizedMessages('signUpHeader')
-    },
-    getBackToMainTxt () {
-      return localizedService.getLocalizedMessages('backToMain')
-    },
-    getFinishCreateAccountTxt () {
-      return localizedService.getLocalizedMessages('finishCreateAccount')
-    },
-    getUserAgreementTxt () {
-      return localizedService.getLocalizedMessages('userAgreement')
-    },
-    getEmailBoxPlaceHolderTxt () {
-      return localizedService.getLocalizedMessages('emailBoxPlaceHolder')
-    },
-    getPasswordBoxPlaceHolderTxt () {
-      return localizedService.getLocalizedMessages('passwordBoxPlaceHolder')
-    },
-    getConfirmPasswordBoxPlaceHolderTxt () {
-      return localizedService.getLocalizedMessages(
-        'confirmPasswordPlaceHolder'
-      )
-    },
-    getHintBoxPlaceHolderTxt () {
-      return localizedService.getLocalizedMessages('hintBoxPlaceHolder')
-    }
   },
   methods: {
     createAccount () {

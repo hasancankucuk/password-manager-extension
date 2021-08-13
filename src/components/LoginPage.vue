@@ -1,23 +1,23 @@
 <template>
   <div class="loginPageMain" >
-    <p class="projectHeader">{{ defaultText }}</p>
+    <p class="projectHeader">{{ getLocalizedMessages('extName') }}</p>
     <input
       class="loginEmailBox"
       type="email"
-      v-bind:placeholder="getEmailBoxPlaceHolderTxt"
+      v-bind:placeholder="getLocalizedMessages('emailBoxPlaceHolder')"
       v-model="email"
     />
     <input
       class="loginPasswordBox"
       type="password"
-      v-bind:placeholder="getPasswordBoxPlaceHolderTxt"
+      v-bind:placeholder="getLocalizedMessages('passwordBoxPlaceHolder')"
       v-model="password"
     />
-    <button class="loginButton" @click="login()">{{ getLoginButtonTxt }}</button>
+    <button class="loginButton" @click="login()">{{ getLocalizedMessages('loginHeader') }}</button>
     <h3 class="signUpHeader" @click="createAccount()">
-      {{ getSignUpHeaderTxt }}
+      {{ getLocalizedMessages('signUpHeader') }}
     </h3>
-    <h3 class="forgotPassword" @click="forgotPassword()">{{ getForgotPasswordTxt }}</h3>
+    <h3 class="forgotPassword" @click="forgotPassword()">{{ getLocalizedMessages('forgotPassword') }}</h3>
   </div>
 </template>
 <script>
@@ -45,58 +45,29 @@ export default {
   },
   computed: {
     ...mapState(['isLoggedIn']),
-    defaultText () {
-      return localizedService.getLocalizedMessages('extName')
-    },
-    getLoginHeaderTxt () {
-      return localizedService.getLocalizedMessages('loginHeader')
-    },
-    getSignUpHeaderTxt () {
-      return localizedService.getLocalizedMessages('signUpHeader')
-    },
-    getLoginButtonTxt () {
-      return localizedService.getLocalizedMessages('loginHeader')
-    },
-    getForgotPasswordTxt () {
-      return localizedService.getLocalizedMessages('forgotPassword')
-    },
-    getEmailBoxPlaceHolderTxt () {
-      return localizedService.getLocalizedMessages('emailBoxPlaceHolder')
-    },
-    getPasswordBoxPlaceHolderTxt () {
-      return localizedService.getLocalizedMessages('passwordBoxPlaceHolder')
+    getLocalizedMessages(text) {
+      return localizedService.getLocalizedMessages(text)
     }
   },
   methods: {
     login () {
-      var email = this.email
-      var password = this.password
-      var axios = require('axios')
-      var data = ''
-      var config = {
-        method: 'get',
-        url: 'https://192.168.0.23:5001/api/UserLogin',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        data: data
+      if (!this.checkUser()) {
+        return;
       }
 
-      axios(config)
-        .then(function (response) {
-          response.data.forEach(element => {
-            if ((element.userMail === email || element.userMail === password) && router.currentRoute.path !== '/') {
-              store.dispatch('setLogIn', true)
-              router.push({ path: '/' })
-              browser.runtime.sendMessage({
-                key: 'loggedIn'
-              })
-            }
-          })
+      this.userModel.userEmail = this.userModel.userName;
+      this.userService
+        .sendLoginRequest(this.userModel)
+        .then(() => {
+          this.isLoginStarted = false;
+          this.isLogged = true;
+          this.$store.commit("LOGIN_USER");
+          localStorage.setItem("token", this.userModel.userEmail);
+          router.push("/profile");
         })
-        .catch(function (error) {
-          console.log(error)
-        })
+        .catch(() => {
+          this.isLoginStarted = false;
+        });
     },
     createAccount () {
       router.push({ path: '/signUp' })
