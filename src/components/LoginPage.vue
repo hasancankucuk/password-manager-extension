@@ -64,11 +64,12 @@ export default {
       this.userModel.userEmail = this.userModel.userName;
       this.userService
         .sendLoginRequest(this.userModel)
-        .then(() => {
+        .then((response) => {
           this.isLoginStarted = false;
           this.isLogged = true;
           this.$store.commit("LOGIN_USER");
           localStorage.setItem("token", this.userModel.userEmail);
+          localStorage.setItem("tokenId", response);
           router.push("/profile");
         })
         .catch(() => {
