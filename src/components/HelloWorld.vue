@@ -1,27 +1,27 @@
 <template>
   <div >
     <div class="projectHeaderDiv" >
-      <p class="projectHeader">{{ defaultText }}</p>
+      <p class="projectHeader">{{ getLocalizedMessages("extName") }}</p>
     </div>
     <ul class="menuItems">
-      <li class="recentlyUsed" @click="openRecenltyUsed">{{ getRecenltyUsedText }}
+      <li class="recentlyUsed" @click="openRecenltyUsed">{{ getLocalizedMessages('recentlyUsed') }}
         <div class="moreOptions" id="recentlyUsedMore"></div>
       </li>
-      <li class="allPasswords" @click="openAllPasswords">{{ getAllPasswordsText }}
+      <li class="allPasswords" @click="openAllPasswords">{{ getLocalizedMessages('allPasswords') }}
         <div class="moreOptions" id="allPasswordsMore"></div>
       </li>
-      <li  class="addPassword" @click="openAddPassword">{{ getAddPasswordText }}
+      <li  class="addPassword" @click="openAddPassword">{{ getLocalizedMessages('addPassword') }}
         <div class="moreOptions" id="addPasswordMore"></div>
       </li>
     </ul>
     <ul class="accountItems">
-      <li class="accountOptions" @click="openOptions">{{ getAccountOptionsText }}
+      <li class="accountOptions" @click="openOptions">{{ getLocalizedMessages('accountOptions') }}
         <div class="moreOptions" id="accountOptionsMore"></div>
       </li>
-      <li class="signOut" @click="signOut">{{ getSignOutText }}</li>
+      <li class="signOut" @click="signOut">{{ this.getLocalizedMessages('signOut') }}</li>
     </ul>
     <ul class="aboutItems">
-      <li class="aboutExtension" @click="openAbout">{{getAboutExtensionText}}
+      <li class="aboutExtension" @click="openAbout">{{ getLocalizedMessages('aboutExtension') }}
         <div class="moreOptions" id="aboutExtensionMore"></div>
       </li>
     </ul>
@@ -53,29 +53,11 @@ export default {
   },
   computed: {
     ...mapState(['isLoggedIn']),
-    defaultText () {
-      return localizedService.getLocalizedMessages('extName')
-    },
-    getRecenltyUsedText () {
-      return localizedService.getLocalizedMessages('recentlyUsed')
-    },
-    getAllPasswordsText () {
-      return localizedService.getLocalizedMessages('allPasswords')
-    },
-    getAddPasswordText () {
-      return localizedService.getLocalizedMessages('addPassword')
-    },
-    getAccountOptionsText () {
-      return localizedService.getLocalizedMessages('accountOptions')
-    },
-    getSignOutText () {
-      return localizedService.getLocalizedMessages('signOut')
-    },
-    getAboutExtensionText () {
-      return localizedService.getLocalizedMessages('aboutExtension')
-    }
   },
   methods: {
+    getLocalizedMessages(text) {
+      return localizedService.getLocalizedMessages(text);
+    },
     openOptions () {
       router.push({ path: '/accountOptions' })
     },
@@ -84,11 +66,11 @@ export default {
     },
     openAllPasswords () {
       // TODO : web sitesi url eklenecek
-      window.open('http://192.168.1.23:8080/all-passwords')
+      window.open('http://localhost:8080/all-passwords')
     },
     openAddPassword () {
       // TODO : web sitesi url eklenecek
-      window.open('http://192.168.1.23:8080/add-account')
+      window.open('http://localhost:8080/add-account')
     },
     openAbout () {
       router.push({ path: '/about' })

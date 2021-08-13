@@ -1,93 +1,88 @@
 <template>
   <div>
     <div class="signUpHeaderDiv">
-      <p class="signUpStart">{{ getSignUpStartTxt }}</p>
+      <p class="signUpStart"></p>
     </div>
-   <h3 class="backToMain" @click="mainPopup">{{ getBackToMainTxt }}
-     <div class="backToMainIcon"></div>
-   </h3>
-   <ul class="notificationSettingsItem">
-     <li class="notificationSetting" @click="setNotification">{{ getNotificationSettingsTxt }}
-       <input type="checkbox" :checked="!this.isNotificationsEnable">
-     </li>
-     <li class="matchedPasswordSetting" @click="setToolbarNotification">{{ getMatchedPasswordSettingTxt }}
-       <input type="checkbox" :checked="!this.isToolbarNotificationEnable">
-     </li>
+    <h3 class="backToMain" @click="mainPopup">
+      {{ getLocalizedMessages("backToMain") }}
+      <div class="backToMainIcon"></div>
+    </h3>
+    <ul class="notificationSettingsItem">
+      <li class="notificationSetting" @click="setNotification">
+        {{ getLocalizedMessages("notificationSetting") }}
+        <input type="checkbox" :checked="!this.isNotificationsEnable" />
+      </li>
+      <li class="matchedPasswordSetting" @click="setToolbarNotification">
+        {{ getLocalizedMessages("matchedPasswordSetting") }}
+        <input type="checkbox" :checked="!this.isToolbarNotificationEnable" />
+      </li>
     </ul>
     <ul class="mailSettingItem">
-      <li class="changeMailSetting" @click="changeMail">{{ getChangeMailSettingTxt }}</li>
+      <li class="changeMailSetting" @click="changeMail">
+        {{ getLocalizedMessages("changeMailSetting") }}
+      </li>
     </ul>
     <ul class="passwordSettingsItem">
-     <li class="changePasswordSetting" @click="changePassword">{{ getChangePasswordSettingTxt }}</li>
-     <li class="generatePasswordSetting" @click="generatePassword">{{ getGeneratePAsswordSettingTxt }}</li>
-   </ul>
+      <li class="changePasswordSetting" @click="changePassword">
+        {{ getLocalizedMessages("changePasswordSetting") }}
+      </li>
+      <li class="generatePasswordSetting" @click="generatePassword">
+        {{ getLocalizedMessages("generatePasswordSetting") }}
+      </li>
+    </ul>
   </div>
 </template>
 <script>
-import router from '../router'
-import localizedService from '../services/localized-services'
-import store from '../store'
-import { mapActions, mapState } from 'vuex'
+import router from "../router";
+import localizedService from "../services/localized-services";
+import store from "../store";
+import { mapActions, mapState } from "vuex";
 export default {
-  name: 'AccountOptions',
-  data () {
+  name: "AccountOptions",
+  data() {
     return {
-      localizedService
-    }
+      localizedService,
+    };
   },
   computed: {
-    ...mapActions(['setNotifications', 'setToolbarNotifications']),
-    ...mapState(['isNotificationsEnable', 'isToolbarNotificationEnable']),
-    defaultText () {
-      return localizedService.getLocalizedMessages('extName')
-    },
-    getBackToMainTxt () {
-      return localizedService.getLocalizedMessages('backToMain')
-    },
-    getNotificationSettingsTxt () {
-      return localizedService.getLocalizedMessages('notificationSetting')
-    },
-    getMatchedPasswordSettingTxt () {
-      return localizedService.getLocalizedMessages('matchedPasswordSetting')
-    },
-    getChangeMailSettingTxt () {
-      return localizedService.getLocalizedMessages('changeMailSetting')
-    },
-    getChangePasswordSettingTxt () {
-      return localizedService.getLocalizedMessages('changePasswordSetting')
-    },
-    getGeneratePAsswordSettingTxt () {
-      return localizedService.getLocalizedMessages('generatePasswordSetting')
-    }
+    ...mapActions(["setNotifications", "setToolbarNotifications"]),
+    ...mapState(["isNotificationsEnable", "isToolbarNotificationEnable"]),
   },
   methods: {
-    mainPopup () { //
-      router.push({ path: '/' })
+    getLocalizedMessages(text) {
+      return localizedService.getLocalizedMessages(text);
     },
-    changePassword () {
+    mainPopup() {
+      //
+      router.push({ path: "/" });
+    },
+    changePassword() {
       // TODO : web sitesi url eklenecek
-      window.open('http://www.google.com')
+      window.open("http://www.google.com");
     },
-    generatePassword () {
+    generatePassword() {
       // TODO: web sitesi url eklenecek
-      window.open('http://192.168.1.23:8080/password-generator')
+      window.open("http://localhost:8080/password-generator");
     },
-    changeMail () {
+    changeMail() {
       // TODO: web sitesi url eklenecek
-      window.open('http://www.google.com')
+      window.open("http://www.google.com");
     },
-    setNotification () {
-      store.dispatch('setNotifications', !!store.state.isNotificationsEnable)
+    setNotification() {
+      store.dispatch("setNotifications", !!store.state.isNotificationsEnable);
       browser.runtime.sendMessage({
-        key: 'notifications'
-      })
+        key: "notifications",
+      });
     },
-    setToolbarNotification () {
-      store.dispatch('setToolbarNotifications', !!store.state.isToolbarNotificationEnable)
+    setToolbarNotification() {
+      store.dispatch(
+        "setToolbarNotifications",
+        !!store.state.isToolbarNotificationEnable
+      );
       browser.runtime.sendMessage({
-        key: 'toolbarNotifications'
-      })
-    }
-  }
-}
+        key: "toolbarNotifications",
+      });
+    },
+  },
+};
 </script>

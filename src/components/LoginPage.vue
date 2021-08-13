@@ -1,6 +1,6 @@
 <template>
-  <div class="loginPageMain" >
-    <p class="projectHeader">{{ getLocalizedMessages('extName') }}</p>
+  <div class="loginPageMain">
+    <p class="projectHeader">{{ getLocalizedMessages("extName") }}</p>
     <input
       class="loginEmailBox"
       type="email"
@@ -13,44 +13,50 @@
       v-bind:placeholder="getLocalizedMessages('passwordBoxPlaceHolder')"
       v-model="password"
     />
-    <button class="loginButton" @click="login()">{{ getLocalizedMessages('loginHeader') }}</button>
+    <button class="loginButton" @click="login()">
+      {{ getLocalizedMessages("loginHeader") }}
+    </button>
     <h3 class="signUpHeader" @click="createAccount()">
-      {{ getLocalizedMessages('signUpHeader') }}
+      {{ getLocalizedMessages("signUpHeader") }}
     </h3>
-    <h3 class="forgotPassword" @click="forgotPassword()">{{ getLocalizedMessages('forgotPassword') }}</h3>
+    <h3 class="forgotPassword" @click="forgotPassword()">
+      {{ getLocalizedMessages("forgotPassword") }}
+    </h3>
   </div>
 </template>
 <script>
-import localizedService from '../services/localized-services'
-import router from '../router'
-import { mapState } from 'vuex'
-import store from '../store'
+import localizedService from "../services/localized-services";
+import router from "../router";
+import { mapState } from "vuex";
+import store from "../store";
 export default {
-  name: 'LoginPage',
-  data () {
+  name: "LoginPage",
+  data() {
     return {
-      email: '',
-      password: '',
-      response: []
-    }
+      email: "",
+      password: "",
+      response: [],
+    };
   },
-  created () {
+  created() {
     if (store.state.isLoggedIn === undefined) {
-      store.state.isLoggedIn = localStorage.getItem('logInfo')
+      store.state.isLoggedIn = localStorage.getItem("logInfo");
     }
 
-    if (router.currentRoute.path !== '/' && store.state.isLoggedIn === 'true') {
-      router.replace({ path: '/' }).catch((err) => { console.log(err) })
+    if (router.currentRoute.path !== "/" && store.state.isLoggedIn === "true") {
+      router.replace({ path: "/" }).catch((err) => {
+        console.log(err);
+      });
     }
   },
   computed: {
-    ...mapState(['isLoggedIn']),
-    getLocalizedMessages(text) {
-      return localizedService.getLocalizedMessages(text)
-    }
+    ...mapState(["isLoggedIn"]),
   },
   methods: {
-    login () {
+    getLocalizedMessages(text) {
+      return localizedService.getLocalizedMessages(text);
+    },
+    login() {
       if (!this.checkUser()) {
         return;
       }
@@ -69,12 +75,12 @@ export default {
           this.isLoginStarted = false;
         });
     },
-    createAccount () {
-      router.push({ path: '/signUp' })
+    createAccount() {
+      router.push({ path: "/signUp" });
     },
-    forgotPassword () {
-      router.push({ path: '/forgotPassword' })
-    }
-  }
-}
+    forgotPassword() {
+      router.push({ path: "/forgotPassword" });
+    },
+  },
+};
 </script>
