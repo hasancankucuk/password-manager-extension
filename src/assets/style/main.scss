@@ -2,16 +2,17 @@
     background-color: #5F9EA0;
     margin-top: -8px;
     margin-left: -8px;
-    width: 500px;
+    margin-right: -8px;
     position: relative;
     padding: 1px;
     color: white;
+    text-align: center;
 }
 
 .projectHeader {
-    margin-left: 100px;
     position: relative;
     font-size: 18px;
+    flex-grow: 4;
 }
 
 .menuItems {
@@ -24,43 +25,27 @@
     user-select: none;
 }
 
-.recentlyUsed {
-    background-image: url("../icons/recenlty-used-icon.svg");
-    background-repeat: no-repeat;
-    background-position: 0px;
-    background-size: 20px;
-    padding-left: 30px;
-    font-size: 15px;
-}
-
-.allPasswords {
-    background-image: url("../icons/all-paswords-icon.svg");
-    background-repeat: no-repeat;
-    background-position: 0px;
-    background-size: 20px;
-    padding-left: 30px;
-    font-size: 15px;
-}
-
-.addPassword {
-    background-image: url("../icons/add-password-icon.svg");
-    background-repeat: no-repeat;
-    background-position: 0px 10px;
-    background-size: 20px;
-    padding-left: 30px;
-    font-size: 15px;
-    border-bottom: solid;
-    border-bottom-width: thin;
-    border-bottom-color: #d9d9d9;
-}
-
 .moreOptions {
     background-image: url("../icons/more-icon.svg");
     position: absolute;
     right: 10px;
-    z-index: 999999!important;
+    z-index: 999999 !important;
     width: 20px;
     height: 20px;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: transparent;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.toWebSite {
+    background-image: url("../icons/link-out-icon.svg");
+    position: absolute;
+    right: 10px;
+    z-index: 999999 !important;
+    width: 30px;
+    height: 30px;
     background-repeat: no-repeat;
     border: none;
     background-color: transparent;
@@ -78,27 +63,6 @@
     user-select: none;
 }
 
-.accountOptions {
-    background-image: url("../icons/account-options-icon.svg");
-    background-repeat: no-repeat;
-    background-position: 0px;
-    background-size: 20px;
-    padding-left: 30px;
-    font-size: 15px;
-}
-
-.signOut {
-    background-image: url("../icons/sign-out-icon.svg");
-    background-repeat: no-repeat;
-    background-position: 0px;
-    background-size: 20px;
-    padding-left: 30px;
-    font-size: 15px;
-    border-bottom: solid;
-    border-bottom-width: thin;
-    border-bottom-color: #d9d9d9;
-}
-
 .aboutItems {
     list-style: none;
     line-height: 40px;
@@ -109,25 +73,15 @@
     user-select: none;
 }
 
-.aboutExtension {
-    background-image: url("../icons/info-icon.svg");
-    background-repeat: no-repeat;
-    background-position: 3px;
-    background-size: 6px;
-    padding-left: 30px;
-    font-size: 15px;
-}
-
-li:hover {
-    background-color: #5F9EA0;
-}
-
 .about {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: space-around;
     background-color: #5F9EA0;
     margin-top: -8px;
     margin-left: -8px;
     width: 500px;
-    height: 60px;
     position: relative;
     padding: 1px;
     color: white;
@@ -146,6 +100,7 @@ li:hover {
     height: 21px;
     border-radius: 7px;
     left: 8px;
+    flex-grow: 1;
 }
 
 .backToMainIcon {
@@ -154,7 +109,7 @@ li:hover {
     transform: scaleX(-1);
     position: absolute;
     left: -8px;
-    z-index: 999999!important;
+    z-index: 999999 !important;
     width: 20px;
     height: 20px;
     background-repeat: no-repeat;
@@ -163,35 +118,66 @@ li:hover {
     display: inline-block;
 }
 
-.notificationSettingsItem {
+.menuItems {
     list-style: none;
     line-height: 40px;
-    cursor: pointer;
     text-decoration: none;
     display: block;
     padding: 0;
     user-select: none;
 }
 
+ul.menuItems {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    left: 5px;
+    top: 5px;
+    font-size: 14px;
+}
+
+li.clickable:hover {
+    background-color: #5F9EA0;
+    cursor: pointer;
+}
+
+ul.menuItems>li {
+    padding-left: 10px;
+}
+
+ul.menuItems>li.header {
+    border-bottom-style: solid;
+    border-bottom-width: 1vh;
+    border-color: #484848;
+}
+
+ul.menuItems>li>img {
+    background-repeat: no-repeat;
+    border-style: none;
+    border-width: 0px;
+    height: 20px;
+    width: 20px;
+    border: 0;
+    margin-bottom: -5px;
+}
+
 .notificationSetting {
     background-image: url("../icons/notification-icon.svg");
-    background-repeat: no-repeat;
-    background-position: 0px;
-    background-size: 20px;
-    padding-left: 30px;
-    font-size: 14px;
 }
 
 .matchedPasswordSetting {
     background-image: url("../icons/matched-password-icon.svg");
-    background-repeat: no-repeat;
-    background-position: 0px;
-    background-size: 20px;
-    padding-left: 30px;
-    font-size: 14px;
-    border-bottom: solid;
-    border-bottom-width: thin;
-    border-bottom-color: #d9d9d9;
+}
+
+.generatePasswordSetting {
+    background-image: url("../icons/generate-password-icon.svg");
+}
+
+.changeMailSetting {
+    background-image: url("../icons/change-email-icon.svg");
 }
 
 .mailSettingItem {
@@ -207,15 +193,6 @@ li:hover {
     user-select: none;
 }
 
-.changeMailSetting {
-    background-image: url("../icons/change-email-icon.svg");
-    background-repeat: no-repeat;
-    background-position: 0px;
-    background-size: 20px;
-    padding-left: 30px;
-    font-size: 14px;
-}
-
 .passwordSettingsItem {
     list-style: none;
     line-height: 40px;
@@ -228,15 +205,6 @@ li:hover {
 
 .changePasswordSetting {
     background-image: url("../icons/change-password-icon.svg");
-    background-repeat: no-repeat;
-    background-position: 0px;
-    background-size: 20px;
-    padding-left: 30px;
-    font-size: 14px;
-}
-
-.generatePasswordSetting {
-    background-image: url("../icons/generate-password-icon.svg");
     background-repeat: no-repeat;
     background-position: 0px;
     background-size: 20px;
@@ -458,14 +426,19 @@ li:hover {
     height: 60px;
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
-    z-index: 999999!important;
+    z-index: 999999 !important;
     position: relative;
     margin: 36%;
-  }
-  
+}
+
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .resetPasswordMain {

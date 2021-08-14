@@ -21,7 +21,7 @@
   "aboutExtension": {
     "message": "About"
   },
-  "backToMain" : {
+  "backToMain": {
     "message": "Back"
   },
   "notificationSetting": {
@@ -30,11 +30,14 @@
   "matchedPasswordSetting": {
     "message": "Show Number of Matching Sites in Toolbar "
   },
-  "changeMailSetting": {
-    "message": "Change E-mail Address"
+  "account": {
+    "message": "Account"
   },
-  "changePasswordSetting": {
-    "message": "Change Password"
+  "password": {
+    "message": "Password"
+  },
+  "updateAccount": {
+    "message": "Update Account"
   },
   "generatePasswordSetting": {
     "message": "Generate Secure Password"

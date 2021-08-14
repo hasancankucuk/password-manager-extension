@@ -45,7 +45,7 @@
     "browser_style": true
   },
   "web_accessible_resources": [
-    "assets/style/main.css",
+    "assets/style/main.scss",
     "src/assets/icons/recenlty-used-icon.svg",
     "assets/icons/all-passwords-icon.svg",
     "assets/icons/add-password-icon.svg",

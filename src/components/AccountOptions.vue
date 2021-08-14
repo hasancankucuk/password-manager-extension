@@ -7,27 +7,32 @@
       {{ getLocalizedMessages("backToMain") }}
       <div class="backToMainIcon"></div>
     </h3>
-    <ul class="notificationSettingsItem">
-      <li class="notificationSetting" @click="setNotification">
+    <ul class="menuItems">
+      <li class="clickable" @click="setNotification">
+        <img :src="getIcon('notification-icon')" />
         {{ getLocalizedMessages("notificationSetting") }}
-        <input type="checkbox" :checked="!this.isNotificationsEnable" />
+        <input type="checkbox" :checked="this.isNotificationsEnable" />
       </li>
-      <li class="matchedPasswordSetting" @click="setToolbarNotification">
+      <li class="clickable" @click="setToolbarNotification">
+        <img :src="getIcon('matched-password-icon')" />
         {{ getLocalizedMessages("matchedPasswordSetting") }}
-        <input type="checkbox" :checked="!this.isToolbarNotificationEnable" />
+        <input type="checkbox" :checked="this.isToolbarNotificationEnable" />
       </li>
-    </ul>
-    <ul class="mailSettingItem">
-      <li class="changeMailSetting" @click="changeMail">
-        {{ getLocalizedMessages("changeMailSetting") }}
+      <li class="header">
+        {{ getLocalizedMessages("account")}}
       </li>
-    </ul>
-    <ul class="passwordSettingsItem">
-      <li class="changePasswordSetting" @click="changePassword">
-        {{ getLocalizedMessages("changePasswordSetting") }}
+      <li class="clickable" @click="updateAccount">
+        <img :src="getIcon('notification-icon')" />
+        {{ getLocalizedMessages("updateAccount") }}
+        <div class="toWebSite"></div>
       </li>
-      <li class="generatePasswordSetting" @click="generatePassword">
+      <li class="header">
+        {{ getLocalizedMessages("password")}}
+      </li>
+      <li class="clickable" @click="generatePassword">
+        <img :src="getIcon('generate-password-icon')" />
         {{ getLocalizedMessages("generatePasswordSetting") }}
+        <div class="toWebSite"></div>
       </li>
     </ul>
   </div>
@@ -49,6 +54,9 @@ export default {
     ...mapState(["isNotificationsEnable", "isToolbarNotificationEnable"]),
   },
   methods: {
+    getIcon(fileName) {
+      return require(`../assets/icons/${fileName}.svg`);
+    },
     getLocalizedMessages(text) {
       return localizedService.getLocalizedMessages(text);
     },
@@ -56,20 +64,16 @@ export default {
       //
       router.push({ path: "/" });
     },
-    changePassword() {
-      // TODO : web sitesi url eklenecek
-      window.open("http://www.google.com");
-    },
     generatePassword() {
       // TODO: web sitesi url eklenecek
       window.open("http://localhost:8080/password-generator");
     },
-    changeMail() {
+    updateAccount() {
       // TODO: web sitesi url eklenecek
-      window.open("http://www.google.com");
+      window.open("http://localhost:8080/profile");
     },
     setNotification() {
-      store.dispatch("setNotifications", !!store.state.isNotificationsEnable);
+      store.dispatch("setNotifications", !this.isNotificationsEnable);
       browser.runtime.sendMessage({
         key: "notifications",
       });
@@ -77,7 +81,7 @@ export default {
     setToolbarNotification() {
       store.dispatch(
         "setToolbarNotifications",
-        !!store.state.isToolbarNotificationEnable
+        !this.isToolbarNotificationEnable
       );
       browser.runtime.sendMessage({
         key: "toolbarNotifications",

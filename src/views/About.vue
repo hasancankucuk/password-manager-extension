@@ -1,10 +1,12 @@
 <template>
-  <div class="about">
-    <p class="projectHeader">{{ getLocalizedMessages("extName") }}</p>
-    <h3 class="backToMain" @click="mainPopup">
-      {{ getLocalizedMessages("backToMain") }}
-      <div class="backToMainIcon"></div>
-    </h3>
+  <div>
+    <div class="about">
+      <h3 class="backToMain" @click="mainPopup">
+        {{ getLocalizedMessages("backToMain") }}
+        <div class="backToMainIcon"></div>
+      </h3>
+      <p class="projectHeader">{{ getLocalizedMessages("extName") }}</p>
+    </div>
     <p class="aboutText">{{ getLocalizedMessages("aboutText") }}</p>
   </div>
 </template>

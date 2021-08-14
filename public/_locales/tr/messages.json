@@ -30,11 +30,14 @@
   "matchedPasswordSetting": {
     "message": "Eşleşen Site Sayısını Göster "
   },
-  "changeMailSetting": {
-    "message": "E-postamı Değiştir"
+  "account": {
+    "message": "Hesap"
   },
-  "changePasswordSetting": {
-    "message": "Şifremi Değiştir"
+  "password": {
+    "message": "Sifre"
+  },
+  "updateAccount": {
+    "message": "Hesabı Güncelle"
   },
   "generatePasswordSetting": {
     "message": "Güçlü Şifre Yarat"

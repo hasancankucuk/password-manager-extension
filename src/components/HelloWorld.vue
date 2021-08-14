@@ -1,27 +1,40 @@
 <template>
-  <div >
-    <div class="projectHeaderDiv" >
+  <div>
+    <div class="projectHeaderDiv">
       <p class="projectHeader">{{ getLocalizedMessages("extName") }}</p>
     </div>
     <ul class="menuItems">
-      <li class="recentlyUsed" @click="openRecenltyUsed">{{ getLocalizedMessages('recentlyUsed') }}
+      <li class="clickable" @click="openRecenltyUsed">
+        <img :src="getIcon('recenlty-used-icon')" />
+        {{ getLocalizedMessages("recentlyUsed") }}
         <div class="moreOptions" id="recentlyUsedMore"></div>
       </li>
-      <li class="allPasswords" @click="openAllPasswords">{{ getLocalizedMessages('allPasswords') }}
+      <li class="clickable" @click="openAllPasswords">
+        <img :src="getIcon('all-paswords-icon')" />
+        {{ getLocalizedMessages("allPasswords") }}
         <div class="moreOptions" id="allPasswordsMore"></div>
       </li>
-      <li  class="addPassword" @click="openAddPassword">{{ getLocalizedMessages('addPassword') }}
+      <li class="clickable" @click="openAddPassword">
+        <img :src="getIcon('add-password-icon')" />
+        {{ getLocalizedMessages("addPassword") }}
         <div class="moreOptions" id="addPasswordMore"></div>
       </li>
-    </ul>
-    <ul class="accountItems">
-      <li class="accountOptions" @click="openOptions">{{ getLocalizedMessages('accountOptions') }}
+      <li class="header">
+        {{ getLocalizedMessages("account") }}
+      </li>
+      <li class="clickable" @click="openOptions">
+        <img :src="getIcon('account-options-icon')" />
+        {{ getLocalizedMessages("accountOptions") }}
         <div class="moreOptions" id="accountOptionsMore"></div>
       </li>
-      <li class="signOut" @click="signOut">{{ this.getLocalizedMessages('signOut') }}</li>
-    </ul>
-    <ul class="aboutItems">
-      <li class="aboutExtension" @click="openAbout">{{ getLocalizedMessages('aboutExtension') }}
+      <li class="clickable" @click="signOut">
+        <img :src="getIcon('sign-out-icon')" />
+        {{ this.getLocalizedMessages("signOut") }}
+      </li>
+      <li class="header"></li>
+      <li class="clickable" @click="openAbout">
+        <img :src="getIcon('info-icon')" />
+        {{ getLocalizedMessages("aboutExtension") }}
         <div class="moreOptions" id="aboutExtensionMore"></div>
       </li>
     </ul>
@@ -29,66 +42,74 @@
 </template>
 
 <script>
-import localizedService from '../services/localized-services'
-import router from '../router'
-import store from '../store'
-import { mapState } from 'vuex'
+import localizedService from "../services/localized-services";
+import router from "../router";
+import store from "../store";
+import { mapState } from "vuex";
 export default {
-  name: 'HelloWorld',
-  data () {
+  name: "HelloWorld",
+  data() {
     return {
-      localizedService
-    }
+      localizedService,
+    };
   },
-  created () {
+  created() {
     if (store.state.isLoggedIn === undefined) {
-      store.state.isLoggedIn = localStorage.getItem('logInfo')
+      store.state.isLoggedIn = localStorage.getItem("logInfo");
     }
-    if (router.currentRoute.path !== '/loginPage' && store.state.isLoggedIn === 'false') {
-      router.push({ path: '/loginPage' }).catch((err) => { console.log(err) })
+    if (
+      router.currentRoute.path !== "/loginPage" &&
+      store.state.isLoggedIn === "false"
+    ) {
+      router.push({ path: "/loginPage" }).catch((err) => {
+        console.log(err);
+      });
     }
   },
-  mounted () {
-    browser.runtime.sendMessage({})
+  mounted() {
+    browser.runtime.sendMessage({});
   },
   computed: {
-    ...mapState(['isLoggedIn']),
+    ...mapState(["isLoggedIn"]),
   },
   methods: {
+    getIcon(fileName) {
+      return require(`../assets/icons/${fileName}.svg`);
+    },
     getLocalizedMessages(text) {
       return localizedService.getLocalizedMessages(text);
     },
-    openOptions () {
-      router.push({ path: '/accountOptions' })
+    openOptions() {
+      router.push({ path: "/accountOptions" });
     },
-    openRecenltyUsed () {
-      router.push({ path: '/recenltyUsed' })
+    openRecenltyUsed() {
+      router.push({ path: "/recenltyUsed" });
     },
-    openAllPasswords () {
+    openAllPasswords() {
       // TODO : web sitesi url eklenecek
-      window.open('http://localhost:8080/all-passwords')
+      window.open("http://localhost:8080/all-passwords");
     },
-    openAddPassword () {
+    openAddPassword() {
       // TODO : web sitesi url eklenecek
-      window.open('http://localhost:8080/add-account')
+      window.open("http://localhost:8080/add-account");
     },
-    openAbout () {
-      router.push({ path: '/about' })
+    openAbout() {
+      router.push({ path: "/about" });
     },
-    signOut () {
+    signOut() {
       if (store.state.isLoggedIn) {
-        store.dispatch('setLogIn', false)
+        store.dispatch("setLogIn", false);
         browser.runtime.sendMessage({
-          key: 'loggedOut'
-        })
-        router.push({ path: '/loginPage' }).catch((reason) => {
-          console.log(reason)
-        })
+          key: "loggedOut",
+        });
+        router.push({ path: "/loginPage" }).catch((reason) => {
+          console.log(reason);
+        });
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 <style>
-@import "../assets/style/main.css";
+@import "../assets/style/main.scss";
 </style>
