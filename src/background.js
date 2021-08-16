@@ -34,19 +34,23 @@ function getLocalStorage () {
   }
 }
 
-function authControl (auth) {
-  if (auth.key === 'loggedIn') {
-    store.dispatch('setLogIn', true)
-    localStorage.setItem('logInfo', true)
-  } else if (auth.key === 'loggedOut') {
-    store.dispatch('setLogIn', false)
-    localStorage.setItem('logInfo', false)
-  }
-}
+// function authControl (auth) {
+//   if (auth.key === 'loggedIn') {
+//     store.dispatch('setLogIn', true)
+//     localStorage.removeItem('token')
+//     localStorage.removeItem('tokenId')
+//     localStorage.removeItem('username')
+//   } else if (auth.key === 'loggedOut') {
+//     store.dispatch('setLogIn', false)
+//     localStorage.removeItem('token')
+//     localStorage.removeItem('tokenId')
+//     localStorage.removeItem('username')
+//   }
+// }
 
 function getAuthStatus (message) {
   if (message.popupOpen) {
-    store.dispatch('setLogIn', localStorage.getItem('logInfo'))
+    store.dispatch('setLogIn', localStorage.getItem('token'))
   }
 }
 
@@ -109,7 +113,7 @@ function activatePopup () {
 browser.tabs.onActivated.addListener(getLocalStorage)
 browser.runtime.onMessage.addListener(setLocalStorage)
 browser.tabs.onActivated.addListener(createNotifications)
-browser.runtime.onMessage.addListener(authControl)
+// browser.runtime.onMessage.addListener(authControl)
 chrome.runtime.onMessage.addListener(getAuthStatus)
 browser.runtime.onMessage.addListener(getInfo)
 browser.tabs.onUpdated.addListener(activatePopup)

@@ -15,10 +15,16 @@ new Vue({
   },
   router,
   mounted() {
-    if (router.currentRoute.path !== '/loginPage' && store.state.isLoggedIn === 'false') {
+    if (store.state.isLoggedIn) {
+      if (router.currentRoute.path === '/loginPage') {
+        router.push({
+          path: '/'
+        });
+      }
+    } else if (router.currentRoute.path !== '/loginPage') {
       router.push({
         path: '/loginPage'
-      })
+      });
     }
 
     browser.tabs.executeScript(null, {

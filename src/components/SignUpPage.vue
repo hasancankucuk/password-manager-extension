@@ -45,6 +45,8 @@
 
 <script>
 import localizedService from "../services/localized-services";
+import userInfoModel from "../models/userInfoModel";
+import UserInfoService from "../services/userInfoServices";
 import router from "../router";
 
 export default {
@@ -55,6 +57,8 @@ export default {
       email: "",
       password: "",
       passwordConfirm: "",
+      userModel: new userInfoModel(),
+      userInfoService: new UserInfoService()
     };
   },
   methods: {
@@ -76,6 +80,7 @@ export default {
       }
     },
     create() {
+      this.userInfoService.sendSignupRequest()
       var axios = require("axios");
       var data = JSON.stringify({
         id: 0,

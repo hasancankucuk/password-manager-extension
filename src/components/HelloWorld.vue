@@ -55,12 +55,10 @@ export default {
   },
   created() {
     if (store.state.isLoggedIn === undefined) {
-      store.state.isLoggedIn = localStorage.getItem("logInfo");
+      store.state.isLoggedIn = !!localStorage.getItem("token");
     }
-    if (
-      router.currentRoute.path !== "/loginPage" &&
-      store.state.isLoggedIn === "false"
-    ) {
+
+    if (router.currentRoute.path !== "/loginPage" && !store.state.isLoggedIn) {
       router.push({ path: "/loginPage" }).catch((err) => {
         console.log(err);
       });
