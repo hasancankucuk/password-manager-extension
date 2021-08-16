@@ -84,11 +84,9 @@ export default {
       router.push({ path: "/recenltyUsed" });
     },
     openAllPasswords() {
-      // TODO : web sitesi url eklenecek
       window.open("http://localhost:8080/all-passwords");
     },
     openAddPassword() {
-      // TODO : web sitesi url eklenecek
       window.open("http://localhost:8080/add-account");
     },
     openAbout() {

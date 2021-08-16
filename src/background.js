@@ -5,7 +5,6 @@ window.userMail = ''
 window.userPassword = ''
 window.url = ''
 
-// TODO icon url değiştirilecek
 function createNotifications () {
   chrome.notifications.create('NOTFICATION_ID', {
     type: 'basic',

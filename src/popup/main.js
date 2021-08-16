@@ -33,7 +33,7 @@ new Vue({
     chrome.runtime.sendMessage({
       action: 'getSource'
     })
-    // TODO: Düzeltilecek
+
     chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {})
   }
 })

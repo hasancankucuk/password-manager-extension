@@ -65,11 +65,9 @@ export default {
       router.push({ path: "/" });
     },
     generatePassword() {
-      // TODO: web sitesi url eklenecek
       window.open("http://localhost:8080/password-generator");
     },
     updateAccount() {
-      // TODO: web sitesi url eklenecek
       window.open("http://localhost:8080/profile");
     },
     setNotification() {
